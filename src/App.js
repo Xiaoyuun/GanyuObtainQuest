@@ -6,10 +6,30 @@ import { Button } from '@material-ui/core';
 function App() {
   // Declare a new state variable, which we'll call "count"
   const [count, setCount] = useState(0);
+  const [resetDate, setResetDate] = useState(new Date())
 
-  const resetTimer = (e) => {
+  const updateCount = (e) => {
     setCount(count + 100 )
   };
+
+  const resetTimer = (e) => {
+    var date1 = new Date();
+    setResetDate(date1)
+  };
+
+  const checkDate = () => {
+    var msDiff = new Date().getTime() - resetDate.getTime();    //Future date - current date
+    var days = Math.floor(msDiff / (1000 * 60 * 60 * 24));
+    if (days>2) {
+      sendText()
+    }
+
+  }
+
+  const sendText = () => {
+
+
+  }
 
   return (
     <div className="App">
@@ -29,8 +49,14 @@ function App() {
         <p>
           Ganyu Chibi {count}
         </p>
-        <Button variant="contained" color="primary" onClick={resetTimer}>
+        <Button variant="contained" color="primary" onClick={updateCount}>
           Click me
+        </Button>
+        <p>
+          Time : {resetDate.toLocaleString()}
+        </p>
+        <Button variant="contained" color="primary" onClick={resetTimer}>
+          Reset Timer {resetDate.toLocaleString()}
         </Button>
       </header>
     </div>
