@@ -1,12 +1,16 @@
 import logo from './ChibiGanyuLogo.png';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@material-ui/core';
 
 function App() {
   // Declare a new state variable, which we'll call "count"
   const [count, setCount] = useState(0);
   const [resetDate, setResetDate] = useState(new Date())
+
+  useEffect(() => {
+    checkDate()
+  });
 
   const updateCount = (e) => {
     setCount(count + 100 )
