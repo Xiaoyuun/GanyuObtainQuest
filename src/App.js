@@ -18,7 +18,7 @@ function App() {
           Learn React
         </a>
         <p>
-          Ganyu Chibi!
+          Ganyu Chibi
         </p>
       </header>
     </div>
