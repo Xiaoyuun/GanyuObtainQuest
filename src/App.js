@@ -1,7 +1,16 @@
 import logo from './ChibiGanyuLogo.png';
 import './App.css';
+import React, { useState } from 'react';
+import { Button } from '@material-ui/core';
 
 function App() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  const resetTimer = (e) => {
+    setCount(count + 100 )
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,8 +27,11 @@ function App() {
           Learn React
         </a>
         <p>
-          Ganyu Chibi
+          Ganyu Chibi {count}
         </p>
+        <Button variant="contained" color="primary" onClick={resetTimer}>
+          Click me
+        </Button>
       </header>
     </div>
   );
